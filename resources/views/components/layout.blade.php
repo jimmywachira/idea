@@ -21,15 +21,11 @@
     {{-- @livewireStyles --}}
 </head>
 
-<body class="antialiased font-semibold capitalize text-black" style="font-family: 'Google Sans Code', sans-serif;">
+<body class="antialiased font-semibold capitalize text-white" style="font-family: 'Google Sans Code', sans-serif;">
 
     <x-navbar />
-    {{-- <x-header /> --}}
-    
-    <main class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">{{ $slot }}</main>
-    
-
-    {{-- <x-footer /> --}}
+    <main class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">{{ $slot }}</main> 
+    <x-footer />
 
     <!-- Ionicons -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

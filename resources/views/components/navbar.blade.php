@@ -8,7 +8,13 @@
         tabindex="-1"
         class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
         <li><a href="/ideas">home</a></li>
-        <li><a href="/ideas/create">new idea</a></li>
+        
+        <li><a href="/about">about</a></li>
+        
+        @can('view-admin')
+        <li><a href="/admin">admin</a></li>
+        @endcan
+        
       </ul>
     </div>
     <a class="btn btn-ghost text-xl">ideas</a>
@@ -16,10 +22,27 @@
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1">
       <li><a href="/ideas">home</a></li>
-      <li><a href="/ideas/create">new idea</a></li>
+      <li><a href="/about">about</a></li>
+
+      @can('view-admin')
+      <li><a href="/admin">admin</a></li>
+      @endcan
+
     </ul>
   </div>
-  <div class="navbar-end">
-    <a href="/register" class="btn btn-primary">register</a>
+
+  <div class="navbar-end space-x-2">
+
+  @guest
+    <a href="/register" class="btn btn-primary">Register</a>
+    <a href="/login" class="btn btn-secondary">Log In</a>
+  @else
+    <form action="/logout" method="POST">
+      @csrf
+      @method('DELETE')
+      <button type="submit" class="btn btn-ghost">Log Out</button>
+    </form>
+  @endguest
+
   </div>
 </div>

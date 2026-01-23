@@ -21,6 +21,7 @@
                 class="block w-full border-blue-700 p-2 border-2 rounded-md" placeholder="e.g., pending, in-progress, done">
                 <x-forms.error name="status" />
                 </div>
+                
                </div>
 
                 <div class="mt-2 flex items-center justify-end gap-x-6">

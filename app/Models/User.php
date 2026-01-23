@@ -6,7 +6,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use App\Models\Idea;
 
+
+//@property \Illuminate\Database\Eloquent\Collection<int, \App\Models\Idea> $ideas
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
@@ -44,5 +48,16 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function is_admin(): bool
+    {
+        return $this->id === 1;
+        // return $this->role === 'admin';
+    }
+
+    public function ideas(): HasMany
+    {
+        return $this->hasMany(Idea::class);
     }
 }
