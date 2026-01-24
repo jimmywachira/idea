@@ -1,7 +1,7 @@
 <x-layout>
-    <div class="card bg-neutral p-4 text-neutral-content max-w-4xl mx-auto mt-12 mb-24">
+    <div class="card p-4 max-w-4xl mx-auto mt-12 mb-24">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <h1 class="text-3xl font-bold mb-6">Edit Your Idea</h1>
+            <h1 class="font-bold mb-6">Edit Your Idea</h1>
         </div>
 
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">

@@ -7,12 +7,12 @@ use App\Http\Controllers\Auth\SessionsController;
 
 Route::middleware('auth')->group(function () {
     Route::get('/', [IdeaController::class, 'index'])->name('home');
-    Route::get('/ideas', [IdeaController::class, 'index']);
+    Route::get('/ideas', [IdeaController::class, 'index'])->name('ideas');
 
     Route::get('/ideas/create', [IdeaController::class, 'create']);
     Route::post('/ideas', [IdeaController::class, 'store']);
     Route::get('/ideas/{idea}', [IdeaController::class, 'show']);
-    Route::get('/ideas/{idea}/edit', [IdeaController::class, 'edit']);
+    Route::get('/ideas/{idea}/edit', [IdeaController::class, 'edit'])->can('update', 'idea');
 
     Route::patch('/ideas/{idea}', [IdeaController::class, 'update']);
     Route::delete('/ideas/{idea}', [IdeaController::class, 'destroy']);
@@ -28,9 +28,9 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', [SessionsController::class, 'store'])->middleware('guest');
 });
 
-// Route::get('/admin', function () {
-//     return 'Admin only';
-// })->can('view-admin')->middleware('auth');
+Route::get('/admin', function () {
+    return 'Admin only';
+})->can('view-admin')->middleware('auth');
 
 Route::get('/about', function () {
     return view('about');

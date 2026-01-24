@@ -29,7 +29,7 @@ class IdeaPolicy
      */
     public function create(User $user): bool
     {
-        return false;
+        return false; 
     }
 
     /**
@@ -37,7 +37,9 @@ class IdeaPolicy
      */
     public function update(User $user, Idea $idea): bool
     {
-        return false;
+        // return false;
+        // return $user->id === $idea->user_id;
+        return $user->is($idea->user);
     }
 
     /**

@@ -1,4 +1,4 @@
-<footer class="bg-base-200 text-white pt-10 pb-8 border-t border-base-300" aria-labelledby="footer-heading">
+<footer class="bg-base-200 pt-10 pb-8 border-t border-base-300" aria-labelledby="footer-heading">
     <h2 id="footer-heading" class="sr-only">Footer</h2>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="xl:grid xl:grid-cols-3 xl:gap-8">
@@ -57,7 +57,7 @@
                     <p class="mt-4 text-sm text-gray-300">Get the latest inspiring ideas delivered to your inbox.</p>
                     <form class="mt-4 sm:flex sm:max-w-md">
                         <label for="email-address" class="sr-only">Email address</label>
-                        <input type="email" name="email-address" id="email-address" autocomplete="email" required class="input input-bordered w-full text-black focus:ring-primary focus:border-primary" placeholder="Enter your email">
+                        <input type="email" name="email-address" id="email-address" autocomplete="email" required class="input input-bordered w-full focus:ring-primary focus:border-primary" placeholder="Enter your email">
                         <div class="mt-3 sm:mt-0 sm:ml-3">
                             <button type="submit" class="btn btn-primary w-full">Subscribe</button>
                         </div>
@@ -66,7 +66,7 @@
             </div>
         </div>
         
-        <div class="mt-12 border-t border-gray-700 pt-8 text-center">
+        <div class="mt-12 border-t border-primary pt-8 text-center">
             <p class="text-sm text-gray-400">&copy; {{ date('Y') }} Ideas Project. All rights reserved.</p>
         </div>
     </div>

@@ -1,4 +1,4 @@
-<div class="navbar text-white bg-base-200 p-2">
+<div class="navbar bg-base-200 p-2">
   <div class="navbar-start">
     <div class="dropdown">
       <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -7,9 +7,9 @@
       <ul
         tabindex="-1"
         class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li><a href="/ideas">home</a></li>
+        <li><a href="/ideas" class="text-2xl{{ request()->routeIs('ideas') ? ' font-bold text-primary tracking-tight' : '' }}">home</a></li>
         
-        <li><a href="/about">about</a></li>
+        <li><a class="text-2xl {{ request()->routeIs('about') ? ' font-bold text-primary tracking-tight' : '' }}" href="/about">about</a></li>
         
         @can('view-admin')
         <li><a href="/admin">admin</a></li>
@@ -21,8 +21,8 @@
   </div>
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1">
-      <li><a href="/ideas">home</a></li>
-      <li><a href="/about">about</a></li>
+      <li><a href="/ideas" class="text-2xl {{ request()->routeIs('ideas') ? ' font-bold text-primary tracking-tight' : '' }}">home</a></li>
+      <li><a href="/about" class="text-2xl {{ request()->routeIs('about') ? ' font-bold text-primary tracking-tight' : '' }}">about</a></li>
 
       @can('view-admin')
       <li><a href="/admin">admin</a></li>

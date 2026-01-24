@@ -11,19 +11,13 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisteredUserController extends Controller
 {
-    /**
-     * Display the registration view.
-     */
-    public function create()
-    {
+    #Display the registration view.
+    public function create(){
         return view('auth.register');
     }
 
-    /**
-     * Handle an incoming registration request.
-     */
-    public function store(Request $request)
-    {
+    #Handle an incoming registration request.
+    public function store(Request $request){
         $attributes = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
@@ -42,10 +36,9 @@ class RegisteredUserController extends Controller
         return redirect('/ideas');
     }
 
-    public function destroy(Request $request)
-    {
-        Auth::logout();
+    public function destroy(Request $request){
 
+        Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 

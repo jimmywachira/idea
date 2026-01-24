@@ -22,8 +22,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Gate::define('view-admin', function (User $user) {
-            return $user->is_admin() ? Response::allow() : Response::deny('You do not have permission to view the admin area.');
-        });
+        // Gate::define('view-admin', function (User $user) {
+        //     return $user->is_admin() ? Response::allow() : Response::deny('You do not have permission to view the admin area.');
+        // });
     }
 }

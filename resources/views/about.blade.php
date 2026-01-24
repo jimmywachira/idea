@@ -90,7 +90,7 @@
                         </div>
                         <div>
                             <h3 class="font-bold">Our Office</h3>
-                            <p class="opacity-70">123 Innovation Drive, Tech City</p>
+                            <p class="opacity-70">123 Kikambala Drive, Nairobi</p>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
@@ -99,7 +99,7 @@
                         </div>
                         <div>
                             <h3 class="font-bold">Email Us</h3>
-                            <p class="opacity-70">hello@ideasproject.com</p>
+                            <p class="opacity-70">hello@webdevs.com</p>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
@@ -108,7 +108,7 @@
                         </div>
                         <div>
                             <h3 class="font-bold">Call Us</h3>
-                            <p class="opacity-70">+1 (555) 123-4567</p>
+                            <p class="opacity-70">+254 (701) 163-149</p>
                         </div>
                     </div>
                 </div>

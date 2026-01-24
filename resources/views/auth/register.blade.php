@@ -1,7 +1,7 @@
 <x-layout>
     <form action="/register" method="POST" class="space-y-6">
         @csrf
-        <fieldset class="fieldset bg-base-200 text-white border-base-300 rounded-box w-xs border p-4 mx-auto">
+        <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4 mx-auto">
             <legend class="fieldset-legend bg-base-400 text-2xl">Register</legend>
 
             <label class="label">Name</label>
