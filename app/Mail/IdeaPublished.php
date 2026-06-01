@@ -37,7 +37,7 @@ class IdeaPublished extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'mail.idea-published',
+            view: 'mail.idea.published',
         );
     }
 

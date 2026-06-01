@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Portfolio | Laravel & Alpine.js Expert</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+</head>
+<body class="bg-base-100 text-base-content font-sans" style="font-family: 'Google Sans Code', sans-serif;">
+
+    <div class="navbar bg-base-100 border-b border-base-200 sticky top-0 z-[100]">
+        <div class="flex-1">
+            <a class="btn btn-ghost text-xl font-mono">dev_portfolio</a>
+        </div>
+        <div class="flex-none">
+            <ul class="menu menu-horizontal px-1 font-medium">
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#demo">Live Demo</a></li>
+                <li><a href="https://github.com" target="_blank">GitHub</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <header class="hero min-h-[60vh] bg-base-200">
+        <div class="hero-content text-center">
+            <div class="max-w-2xl">
+                <h1 class="text-5xl font-bold">Building Strict & Scalable Applications</h1>
+                <p class="py-6 text-lg opacity-80">Full-Stack Developer specializing in <strong>Laravel 12</strong>, <strong>Pest TDD</strong>, and reactive <strong>Alpine.js</strong> components.</p>
+                <div class="flex gap-2 justify-center">
+                    <div class="badge badge-primary p-4">PHP 8.4</div>
+                    <div class="badge badge-secondary p-4">Laravel 12</div>
+                    <div class="badge badge-accent p-4">Tailwind CSS</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="skills" class="py-20 max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-10 text-center">Core Expertise</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="card bg-white border border-base-300 shadow-sm">
+                <div class="card-body">
+                    <ion-icon name="server-outline" class="text-4xl text-primary"></ion-icon>
+                    <h3 class="card-title">Backend Architecture</h3>
+                    <p class="text-sm">Expertise in Service Providers, Policy-based authorization, and automated refactoring using <strong>Rector</strong>.</p>
+                </div>
+            </div>
+            <div class="card bg-white border border-base-300 shadow-sm">
+                <div class="card-body">
+                    <ion-icon name="color-wand-outline" class="text-4xl text-secondary"></ion-icon>
+                    <h3 class="card-title">Reactive UI</h3>
+                    <p class="text-sm">Crafting lightweight, reactive components with <strong>Alpine.js</strong> and <strong>Vite</strong> for optimal performance.</p>
+                </div>
+            </div>
+            <div class="card bg-white border border-base-300 shadow-sm">
+                <div class="card-body">
+                    <ion-icon name="checkmark-done-circle-outline" class="text-4xl text-accent"></ion-icon>
+                    <h3 class="card-title">Test Driven Development</h3>
+                    <p class="text-sm">Writing clean, reliable code with <strong>Pest PHP</strong>. Because untested code is broken code.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo" class="py-20 bg-base-200 px-4" x-data="{ open: false }">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-4">Interactive Lab</h2>
+            <p class="mb-10 opacity-70">A demonstration of the complex Modal logic built for my Rental Management System.</p>
+            
+            <button @click="$dispatch('open-idea-form', { idea: null })" class="btn btn-primary btn-lg px-10">
+                Launch Idea Modal
+            </button>
+        </div>
+
+        <div x-data="{ 
+                show: false,
+                isEdit: false,
+                title: '',
+                links: [],
+                newLink: '',
+                isSubmitting: false,
+                
+                receiveEvent(detail) {
+                    if (detail.idea) {
+                        this.isEdit = true;
+                        this.title = detail.idea.title;
+                        this.links = detail.idea.links || [];
+                    } else {
+                        this.isEdit = false;
+                        this.title = '';
+                        this.links = [];
+                    }
+                    this.show = true;
+                },
+                submitForm() {
+                    this.isSubmitting = true;
+                    setTimeout(() => { 
+                        this.isSubmitting = false; 
+                        this.show = false;
+                        alert('In a real app, this would hit a Laravel POST/PUT route!');
+                    }, 1500);
+                }
+            }" 
+            @open-idea-form.window="receiveEvent($event.detail)"
+            x-show="show" 
+            class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60"
+            style="display: none;"
+            x-transition>
+            
+            <div class="bg-white rounded-2xl p-8 max-w-lg w-full shadow-2xl relative" @click.away="show = false">
+                <button @click="show = false" class="absolute top-4 right-4 text-2xl"><ion-icon name="close"></ion-icon></button>
+                
+                <h3 class="text-2xl font-bold mb-2" x-text="isEdit ? 'Edit Idea' : 'New Idea'"></h3>
+                <p class="text-sm opacity-60 mb-6">Demonstrating Alpine.js state management.</p>
+
+                <div class="space-y-4">
+                    <div class="form-control">
+                        <label class="label"><span class="label-text font-bold">Idea Title</span></label>
+                        <input type="text" x-model="title" class="input input-bordered w-full" placeholder="e.g. Dynamic Dashboards" />
+                    </div>
+
+                    <div class="bg-base-100 p-4 rounded-xl border border-base-300">
+                        <label class="label pt-0"><span class="label-text font-bold">Dynamic Links</span></label>
+                        <div class="space-y-2">
+                            <template x-for="(link, index) in links" :key="index">
+                                <div class="flex gap-2">
+                                    <input type="text" x-model="links[index]" class="input input-sm input-bordered flex-1" />
+                                    <button @click="links.splice(index, 1)" class="btn btn-sm btn-ghost text-error"><ion-icon name="trash"></ion-icon></button>
+                                </div>
+                            </template>
+                            <div class="flex gap-2">
+                                <input x-model="newLink" @keydown.enter.prevent="if(newLink) { links.push(newLink); newLink = ''; }" placeholder="Add link..." class="input input-sm input-bordered flex-1" />
+                                <button @click="links.push(newLink); newLink = ''" :disabled="!newLink" class="btn btn-sm btn-primary"><ion-icon name="add"></ion-icon></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button @click="submitForm()" class="btn btn-primary w-full" :disabled="isSubmitting">
+                        <span x-show="isSubmitting" class="loading loading-spinner"></span>
+                        <span x-text="isSubmitting ? 'Processing...' : (isEdit ? 'Update Changes' : 'Create Idea')"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer footer-center p-10 bg-base-100 text-base-content border-t">
+        <aside>
+            <p class="font-bold">Built with Laravel & Alpine logic.</p> 
+            <p>Copyright © 2026 - All right reserved</p>
+        </aside> 
+    </footer>
+
+</body>
+</html>

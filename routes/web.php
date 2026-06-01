@@ -5,6 +5,15 @@ use App\Http\Controllers\IdeaController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\SessionsController;
 
+Route::get('/a', function () {
+    return view('alphine');
+});
+
+// Route::livewire('/idea/create', 'pages::post.create');
+// Route::livewire('/idea/update', 'pages::post.edit');
+// Route::livewire('/idea/delete', 'pages::post.delete'); 
+// Route::livewire('/ideas', 'pages::post.index');   
+
 Route::middleware('auth')->group(function () {
     Route::get('/', [IdeaController::class, 'index'])->name('home');
     Route::get('/ideas', [IdeaController::class, 'index'])->name('ideas');
